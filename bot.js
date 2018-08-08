@@ -30,6 +30,14 @@ client.on('ready', () => {
 
 
 
+client.on('voiceStateUpdate', (old, now) => {
+  const channel = client.channels.get('475246385017651201');
+  const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
+  const size = channel.name.match(/\[\s(\d+)\s\]/);
+  if (!size) return channel.setName(`SPEAKERS : ${currentSize} `);
+  if (currentSize !== size) channel.setName(`SPEAKERS : ${currentSize} `);
+});
+
 const developers = ["459300517999411218","389136174154907651",""]
 const adminprefix = "-";
 client.on('message', message => {
