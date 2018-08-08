@@ -1128,7 +1128,7 @@ client.on('voiceStateUpdate', (old, now) => {
   const channel = client.channels.get('476729892512333828');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
-  if (!size) return channel.setName(Speakers : ${currentSize} `);
+  if (!size) return channel.setName(`Speakers : ${currentSize} `);
   if (currentSize !== size) channel.setName(`Speakers : ${currentSize} `);
 });
 
