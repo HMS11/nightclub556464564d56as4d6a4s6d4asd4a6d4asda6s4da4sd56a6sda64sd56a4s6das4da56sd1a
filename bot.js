@@ -21,7 +21,7 @@ client.on('ready', () => {
 
 
 client.on('ready', () => {
-     client.user.setActivity("NightClub. | -help",{type: 'WATCHING'})
+     client.user.setActivity("NightClub. ",{type: 'WATCHING'})
 
 });
 
@@ -136,7 +136,7 @@ client.on('message', eyad => {
                 if (!eyad.member.hasPermission("ADMINISTRATOR")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
                 if(!args) return eyad.channel.send('`يرجي ادخال اسم السرفر الجديد`');
                 eyad.guild.owner.send(`**SERVER NAME CHANGED TO  ${args}**
-                'By : <@${eyad.author.id}'`)
+                **By : <@${eyad.author.id}**`)
                 eyad.guild.setName(args)
                 eyad.channel.send(`**SERVER NAME CHANGED TO  ${args}**`);
                 
@@ -149,17 +149,58 @@ client.on('message', eyad => {
 
 client.on('message', eyadandr3d => {
   let args = eyadandr3d.content.split(" ").slice(1).join(" ")
-  if (eyadandr3d.content.startsWith(`*serveravatar`)) {
+  if (eyadandr3d.content.startsWith(`-serveravatar`)) {
                 if (!eyadandr3d.member.hasPermission("ADMINISTRATOR")) return eyadandr3d.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
                 if(!args) return eyadandr3d.channel.send('`من فضلك ضع رابط الصورة`');
                 eyadandr3d.guild.owner.send(`**SERVER AVATAR CHANGED TO  ${args}**
-                'By : <@${eyadandr3d.author.id}'>`)
+                **By : <@${eyadandr3d.author.id}**>`)
             eyadandr3d.guild.setIcon(args)
                 eyadandr3d.channel.send(`**SERVER AVATAR CHANGED TO  ${args}**`);
                 
        }
 
        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ client.on("message", message => {
+    var prefix = "-"; // غير هنا حط البرفكس
+ 
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('``هذا الأمر مخصص للأدارة``');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "انجز بنجاح :white_check_mark: ",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "Cilęo, Server." // غير هنا حط اسم البوت
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});
+  
+
+
+
+
 
 
 client.login(process.env.BOT_TOKEN);
