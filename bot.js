@@ -114,7 +114,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 client.on("message", message => {
-                            const Premium = ['475801173958459412','']//ايديات السيرفرات اللي عندها بريميوم
+                            const Premium = ['47580117395459412','']//ايديات السيرفرات اللي عندها بريميوم
                             if (message.content === "-vip") {
                                 if( Premium.some(word => message.guild.id.includes(word)) ) {
 
