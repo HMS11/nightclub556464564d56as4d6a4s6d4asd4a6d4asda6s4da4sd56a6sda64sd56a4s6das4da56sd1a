@@ -34,8 +34,8 @@ client.on('voiceStateUpdate', (old, now) => {
   const channel = client.channels.get('476729892512333828');
   const currentSize = channel.guild.members.filter(m => m.voiceChannel).size;
   const size = channel.name.match(/\[\s(\d+)\s\]/);
-  if (!size) return channel.setName(`Speakers : 0${currentSize} `);
-  if (currentSize !== size) channel.setName(`Speakers : 0${currentSize} `);
+  if (!size) return channel.setName(`Speakers : ${currentSize} `);
+  if (currentSize !== size) channel.setName(`Speakers : ${currentSize} `);
 });
 
 const developers = ["459300517999411218","389136174154907651",""]
@@ -112,6 +112,54 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 
+
+client.on("message", message => {
+                            const Premium = ['475801173958459412','']//ايديات السيرفرات اللي عندها بريميوم
+                            if (message.content === "-vip") {
+                                if( Premium.some(word => message.guild.id.includes(word)) ) {
+
+        message.channel.send('**Your Premuim will end in a fair 30 days**')
+
+                                } else {
+   message.channel.send('**Premium Only! 🙃**').then(message => {message.delete(1000)});
+}
+                          }
+                      });
+
+
+
+
+
+client.on('message', eyad => {
+  let args = eyad.content.split(" ").slice(1).join(" ")
+  if (eyad.content.startsWith(`-servername`)) {
+                if (!eyad.member.hasPermission("ADMINISTRATOR")) return eyad.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+                if(!args) return eyad.channel.send('`يرجي ادخال اسم السرفر الجديد`');
+                eyad.guild.owner.send(`**SERVER NAME CHANGED TO  ${args}**
+                'By : <@${eyad.author.id}'`)
+                eyad.guild.setName(args)
+                eyad.channel.send(`**SERVER NAME CHANGED TO  ${args}**`);
+                
+       }
+
+       });
+
+
+
+
+client.on('message', eyadandr3d => {
+  let args = eyadandr3d.content.split(" ").slice(1).join(" ")
+  if (eyadandr3d.content.startsWith(`*serveravatar`)) {
+                if (!eyadandr3d.member.hasPermission("ADMINISTRATOR")) return eyadandr3d.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+                if(!args) return eyadandr3d.channel.send('`من فضلك ضع رابط الصورة`');
+                eyadandr3d.guild.owner.send(`**SERVER AVATAR CHANGED TO  ${args}**
+                'By : <@${eyadandr3d.author.id}'>`)
+            eyadandr3d.guild.setIcon(args)
+                eyadandr3d.channel.send(`**SERVER AVATAR CHANGED TO  ${args}**`);
+                
+       }
+
+       });
 
 
 client.login(process.env.BOT_TOKEN);
