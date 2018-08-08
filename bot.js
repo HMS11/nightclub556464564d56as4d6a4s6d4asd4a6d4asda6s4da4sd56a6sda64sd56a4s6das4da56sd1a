@@ -301,7 +301,7 @@ client.on('message', function(message) {
                     message.channel.sendEmbed(play_info)
                message.channel.send(`
                          **Playing :notes:**  **${videoInfo.title}**`)
-                    client.user.setGame(videoInfo.title,'https://www.twitch.tv/Abdulmohsen');
+                    //client.user.setGame(videoInfo.title,'https://www.twitch.tv/Abdulmohsen');
                 });
             });
         }
