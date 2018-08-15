@@ -911,7 +911,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
 let user = message.mentions.users.first();
 let muteRole = message.guild.roles.find("name", "Muted");
 if (!muteRole) return message.reply("** Role Not Find 'Muted' **").then(msg => {msg.delete(5000)});
-if (message.mentions.users.size < 1) return message.reply('https://images-ext-1.discordapp.net/external/Lwjc5bv_OQy-6TAKgpWL3EwmGeLqDQdlx-0vzdiYaiM/https/cdn.pg.sa/n4eSIakPew.png').then(msg => {msg.delete(5000)});
+if (message.mentions.users.size < 1)     message.channel.sendFile("https://cdn.discordapp.com/attachments/477703144579530772/479374041942327298/colors.png").then(msg => {msg.delete(5000)});
 let reason = message.content.split(" ").slice(2).join(" ");
 message.guild.member(user).addRole(muteRole);
 const muteembed = new Discord.RichEmbed()
@@ -973,7 +973,7 @@ client.on("ready", () => {
 
 client.on("guildMemberAdd", (member) => {
 	     	const prefix = '#'
-    let channel = member.guild.channels.get("474484145977032704");
+    let channel = member.guild.channels.get("476063648864010242");
     if (!channel) {
         console.log("!the channel id it's not correct");
         return;
@@ -984,14 +984,14 @@ client.on("guildMemberAdd", (member) => {
     console.log('-');
     var guild;
     while (!guild)
-        guild = client.guilds.get("476063648864010242");
+        guild = client.guilds.get("476063648864010240");
     guild.fetchInvites().then((data) => {
         data.forEach((Invite, key, map) => {
             var Inv = Invite.code;
             if (dat[Inv])
                 if (dat[Inv] < Invite.uses) {
- channel.send(`**Welcome To Cilęo Server.**
-**Invited By** :  ${Invite.inviter} `) ;         
+ channel.send(`**Welcome To GamerStation ,..**
+Invited By :  ${Invite.inviter} `) ;         
  }
             dat[Inv] = Invite.uses;
 
