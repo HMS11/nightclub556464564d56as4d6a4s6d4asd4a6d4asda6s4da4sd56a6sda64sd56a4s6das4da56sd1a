@@ -1120,4 +1120,31 @@ const misaka = new Set();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+client.on('guildMemberAdd', member => {
+    var embed = new Discord.RichEmbed()
+    .setThumbnail(member.user.avatarURL)
+            .setAuthor(member.user.tag, member.user.avatarURL)
+    .setDescription('**Welcome To GamerStation. Server **')
+    .setColor('#b465f1')
+    .setImage('https://cdn.discordapp.com/attachments/476063648864010242/479447393574584320/Gamerss.png')
+var channel =member.guild.channels.find('name', 'text')
+if (!channel) return;
+channel.send({embed : embed});
+});
+
+
+
+
 client.login(process.env.BOT_TOKEN);
