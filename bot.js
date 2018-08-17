@@ -115,7 +115,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 client.on("message", message => {
                             const Premium = ['47580117395459412','']//ايديات السيرفرات اللي عندها بريميوم
-                            if (message.content === "-vip") {
+                            if (message.content === "#vip") {
                                 if( Premium.some(word => message.guild.id.includes(word)) ) {
 
         message.channel.send('**Your Premuim will end in a fair 27 days**')
@@ -419,7 +419,7 @@ function add_to_queue(strID) {
 function search_video(query, cb) {
     request("https://www.googleapis.com/youtube/v3/search?part=id&type=video&q=" + encodeURIComponent(query) + "&key=" + yt_api_key, function(error, response, body) {
         var json = JSON.parse(body);
-        cb(json.items[0].id.videoId);
+        cb(json.items.id.videoId);
     });
 }
 
